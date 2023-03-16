@@ -1,0 +1,134 @@
+*{
+  box-sizing: border-box;
+  font-family: sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+.screen{
+    height: 100vh;
+    position: relative;
+    display: block;
+    width: 100%;
+}
+
+.side-bar{
+  position: relative;
+  background: #526FE4;
+  width: 15%;
+  height: 100vh;
+  display: inline-block;
+  /* overflow-y: hidden; */
+}
+
+.main{
+  display: inline-block;
+  background-color: #f1f5fa;
+  width: 85%;
+  height: inherit;
+  position: absolute;
+  background-color: #F1F5FA;
+}
+
+.calculator{
+  background-color: #fff;
+  padding: 10px;
+  margin: 20px;
+  position: relative;
+}
+
+.container{
+  position: relative;
+}
+
+.inputArea{
+  width: 50%;
+  border: 1px solid #EAEBED;
+  margin: 10px;
+  display: inline-block;
+}
+
+
+.graphArea{
+  position: absolute;
+  width: 50%;
+  display: inline-block;
+  border: 1px solid #EAEBED;
+  margin: 10px;
+  padding: 20px;
+}
+
+
+.info{
+  font-weight: 400;
+  margin: 10px;
+}
+
+.back{
+  font-weight: 400;
+  margin: 10px;
+}
+
+
+.totalamount{
+  color: #506EE4;
+  font-weight: bold;
+  font-family: sans-serif;
+  font-size: 20px;
+}
+
+.potentialamount{
+  color: #FF5F1B;
+  font-weight: bold;
+  font-family: sans-serif;
+
+}
+.delay{
+  color:#06A473;
+  font-weight: bold;
+  font-family: sans-serif;
+}
+
+.bar{
+  background-color:#5E73EB;
+}
+
+.graph-text{
+  align-items: center;
+  color: #626161;
+  line-height: 1.5;
+}
+
+.bar-graph{
+  margin: 20px;
+}
+
+.slider-area{
+  margin: 40px 0px 40px 30px;
+}
+
+
+.grid{
+  position: relative;
+}
+
+
+.grid-item2{
+  position: absolute;
+  right: 0;
+}
+
+
+.heading{
+  font-weight: 300;
+  margin-left: 10px;
+}
+
+.err-field{
+  display: none;
+  color: white;
+  background-color: #DF2E38;
+  padding: 3px;
+  font-size: 14px;
+  margin: 2px 0px;
+}
