@@ -2,6 +2,7 @@ import React, {useState,useEffect} from 'react'
 import axios from 'axios';
 import InputArea from './InputArea';
 import GraphArea from "./GraphArea"
+import ErrorPage from './ErrorPage';
 
 function Calculator() {
   const [monthlyInvestment, setMonthlyInvestment] = useState(500);
@@ -22,6 +23,10 @@ function Calculator() {
    
     setDelay(val);
   }
+  const [startToday,setStartToday]=useState();
+  const [delayedStart,setDelayedStart]=useState();
+  const [notionalLoss,setNotionalLoss]=useState();
+
 
   //For  api
 
@@ -30,6 +35,7 @@ const [status, setStatus] = useState(-1);
 
 
 useEffect(() => {
+  console.log("AXIOS CALL");
 axios.get('/getResults',
   {
     params : {
@@ -39,11 +45,18 @@ axios.get('/getResults',
     delay : delay,
   }
 }
-).then(res=> setResult(res.data));
+).then(res=> {
+  setResult(res.data)
+  setStartToday(result.startToday && result.startToday);
+  setDelayedStart(result.delayedStart);
+  setNotionalLoss(result.notionalLoss);
+  console.log("Api result:",result);
+});
+
 
 }, [monthlyInvestment, investmentPeriod, rateOfReturn, delay])
 
-console.log("Api result:",result);
+
 
 
   return (
@@ -52,7 +65,6 @@ console.log("Api result:",result);
 
       <h2 className='heading'> SIP Delay Calculator</h2>
 
-     
       <h5 className='info'>It tells you how much wealth you can create by
       making monthly investment</h5>
       <div className='container'>
@@ -60,7 +72,7 @@ console.log("Api result:",result);
         <InputArea monthlyInvestment={monthlyInvestment} changeMonthlyInvestment={changeMonthlyInvestment} investmentPeriod={investmentPeriod} changeInvestmentPeriod={changeInvestmentPeriod}
           rateOfReturn={rateOfReturn} changeRateOfReturn={changeRateOfReturn} delay={delay} changeDelay={changeDelay}
         />
-        <GraphArea monthlyInvestment={monthlyInvestment} investmentPeriod={investmentPeriod} rateOfReturn={rateOfReturn} delay={delay}/>
+        <GraphArea monthlyInvestment = {monthlyInvestment}  investmentPeriod = {investmentPeriod} startToday = {startToday}  delayedStart = {delayedStart} notionalLoss = {notionalLoss} />
       </div>
       
     </div>
