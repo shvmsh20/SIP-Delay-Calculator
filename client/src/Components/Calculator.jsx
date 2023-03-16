@@ -43,8 +43,7 @@ axios.get('/getResults',
 
 }, [monthlyInvestment, investmentPeriod, rateOfReturn, delay])
 
-console.log("Message:",result);
-console.log("Status:",status);
+console.log("Api result:",result);
 
 
   return (

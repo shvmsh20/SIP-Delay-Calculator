@@ -1,21 +1,18 @@
-const express = require("express");
-const routes = require('./server/Routes/index');
-
 const express = require('express')
-app.use(express.json())
+const app = express();
+const route = require("./Routes/index.js");
 
 const PORT = process.env.PORT || 5000;
 
-const app = express();
 
-app.get("/getResults", (req, res) => {
-    console.log(req.query);
-    res.status(0);
-    res.send({ 
-      message: "Hello from server!" });
-  });
-  
+//BodyParser
+const bodyParser = require("body-parser");
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({extended: true}));
+
+app.use("/", route);
+
 
 app.listen(PORT, () => {
   console.log(`Server listening on ${PORT}`);
-});
+});  
