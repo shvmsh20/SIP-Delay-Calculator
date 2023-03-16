@@ -217,17 +217,17 @@ function SliderArea({index, mn, mx, steps, value, setValue}){
       }
       
 
-      if(Number(val)<mn){
-        setInputVal(val);
-        setValue(mn);
-        return;
-      }
+      // if(Number(val)<mn){
+      //   setInputVal(val);
+      //   setValue(mn);
+      //   return;
+      // }
 
-      if(Number(val)>mx){
-        setInputVal(val);
-        setValue(mx);
-        return;
-      }
+      // if(Number(val)>mx){
+      //   setInputVal(val);
+      //   setValue(mx);
+      //   return;
+      // }
 
       setInputVal(val);
       setValue(val === '' ? mn : Number(val));

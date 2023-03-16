@@ -25,11 +25,13 @@ function findAmountWithoutDelay(monthlyInvestment, investmentPeriod, rateOfRetur
     }
     return sipGrowthResult;
   }
-const calculate = (obj)=>{
+const calculate = async (obj)=>{
     const startToday = findAmountWithoutDelay(obj.monthlyInvestment, obj.investmentPeriod, obj.rateOfReturn).toFixed(0);
     const delayedStart = findAmountWithDelay(obj.monthlyInvestment, obj.investmentPeriod, obj.rateOfReturn, obj.delay).toFixed(0);
     const notionalLoss = startToday - delayedStart;
     return {
+        status: 0,
+        message: "Request Successfull",
         startToday,
         delayedStart,
         notionalLoss
