@@ -1,10 +1,5 @@
-import React, {useState, useEffect} from 'react';
-import axios from 'axios';
-import {URLSearchParams} from 'url';
+import React from 'react';
 import {ResponsiveContainer,BarChart,Bar,XAxis,YAxis, Label, Tooltip} from 'recharts'
-
-
-
 
 function findAmountWithoutDelay(monthlyInvestment, investmentPeriod, rateOfReturn){
   let Months = (investmentPeriod)*12;
@@ -42,16 +37,7 @@ let amountWithoutDelay = findAmountWithoutDelay(monthlyInvestment, investmentPer
 let amountWithDelay = findAmountWithDelay(monthlyInvestment, investmentPeriod, rateOfReturn, delay).toFixed(0);
 let notionalLoss = amountWithoutDelay-amountWithDelay;
 
-//For  api
 
-const [demo, setDemo] = useState();
-
-
-useEffect(() => {
-axios.get(`/getResults?limit=2&gender=m`).then(res=> setDemo(res.data));
-
-}, [])
-console.log(demo);
 
 
 

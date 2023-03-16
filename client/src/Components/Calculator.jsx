@@ -1,4 +1,5 @@
-import React, {useState} from 'react'
+import React, {useState,useEffect} from 'react'
+import axios from 'axios';
 import InputArea from './InputArea';
 import GraphArea from "./GraphArea"
 
@@ -21,7 +22,33 @@ function Calculator() {
    
     setDelay(val);
   }
+
+  //For  api
+
+const [result, setResult] = useState();
+const [status, setStatus] = useState(-1);
+
+
+useEffect(() => {
+axios.get('/getResults',
+  {
+    params : {
+    monthlyInvestment : monthlyInvestment,
+    investmentPeriod : investmentPeriod,
+    rateOfReturn : rateOfReturn,
+    delay : delay,
+  }
+}
+).then(res=> setResult(res.data));
+
+}, [monthlyInvestment, investmentPeriod, rateOfReturn, delay])
+
+console.log("Message:",result);
+console.log("Status:",status);
+
+
   return (
+   
     <div className='calculator'>
 
       <h2 className='heading'> SIP Delay Calculator</h2>
