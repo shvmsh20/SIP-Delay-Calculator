@@ -50,13 +50,14 @@ function Calculator() {
       <div className="container">
         <InputArea
           monthlyInvestment={monthlyInvestment}
-          setMonthlyInvestment={setMonthlyInvestment}
+          setMonthlyInvestment ={setMonthlyInvestment}
           investmentPeriod={investmentPeriod}
           setInvestmentPeriod={setInvestmentPeriod}
           rateOfReturn={rateOfReturn}
           setRateOfReturn={setRateOfReturn}
           delay={delay}
           setDelay={setDelay}
+          
         />
         {err ? (
           <ErrorPage />

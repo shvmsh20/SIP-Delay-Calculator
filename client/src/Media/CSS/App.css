@@ -134,6 +134,9 @@
   
 }
 
+
+/* Error Page */
+
 .errorpage{
   position: absolute;
   width: 46%;
@@ -145,6 +148,7 @@
   justify-content: center;
   text-transform: uppercase;
   font-family: 'Montserrat';
+  /* background-color: #DF2E38; */
 }
 
 .errorpage-h1{
@@ -155,8 +159,8 @@
 .errorpage-h2{
   display: block;
   color: #DF2E38;
+  /* background-color: #DF2E38; */
   font-size: 20px;
   justify-content: center;
   margin: 0px 0px 0px 118px;
 }
-
