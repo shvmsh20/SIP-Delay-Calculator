@@ -6,27 +6,15 @@ import ErrorPage from "./ErrorPage";
 
 function Calculator() {
   const [monthlyInvestment, setMonthlyInvestment] = useState(500);
-  function changeMonthlyInvestment(val) {
-    setMonthlyInvestment(val);
-  }
   const [investmentPeriod, setInvestmentPeriod] = useState(1);
-  function changeInvestmentPeriod(val) {
-    setInvestmentPeriod(val);
-  }
   const [rateOfReturn, setRateOfReturn] = useState(1);
-  function changeRateOfReturn(val) {
-    setRateOfReturn(val);
-  }
   const [delay, setDelay] = useState(1);
-  function changeDelay(val) {
-    setDelay(val);
-  }
   const [startToday, setStartToday] = useState();
   const [delayedStart, setDelayedStart] = useState();
   const [notionalLoss, setNotionalLoss] = useState();
+  const [err, setErr] = useState();
 
   //For  api
-  const [err, setErr] = useState();
 
   useEffect(() => {
     async function fetchData() {
@@ -62,13 +50,13 @@ function Calculator() {
       <div className="container">
         <InputArea
           monthlyInvestment={monthlyInvestment}
-          changeMonthlyInvestment={changeMonthlyInvestment}
+          setMonthlyInvestment={setMonthlyInvestment}
           investmentPeriod={investmentPeriod}
-          changeInvestmentPeriod={changeInvestmentPeriod}
+          setInvestmentPeriod={setInvestmentPeriod}
           rateOfReturn={rateOfReturn}
-          changeRateOfReturn={changeRateOfReturn}
+          setRateOfReturn={setRateOfReturn}
           delay={delay}
-          changeDelay={changeDelay}
+          setDelay={setDelay}
         />
         {err ? (
           <ErrorPage />
