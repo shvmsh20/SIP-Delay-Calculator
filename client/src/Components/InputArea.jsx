@@ -1,8 +1,7 @@
 import React from "react";
 import SliderArea from "./SliderArea";
 
-function InputArea(
- props) {
+function InputArea(props) {
   return (
     <div class="inputArea">
       <SliderArea
@@ -11,7 +10,7 @@ function InputArea(
         mx={10000}
         steps={50}
         value={props.monthlyInvestment}
-        setValue={props.setMonthlyInvestment}
+        changeValues={props.changeValues}
       />
       <SliderArea
         index={1}
@@ -19,7 +18,7 @@ function InputArea(
         mx={30}
         steps={1}
         value={props.investmentPeriod}
-        setValue={props.setInvestmentPeriod}
+        changeValues={props.changeValues}
       />
       <SliderArea
         index={2}
@@ -27,7 +26,7 @@ function InputArea(
         mx={30}
         steps={0.1}
         value={props.rateOfReturn}
-        setValue={props.setRateOfReturn}
+        changeValues={props.changeValues}
       />
       <SliderArea
         index={3}
@@ -35,7 +34,7 @@ function InputArea(
         mx={120}
         steps={1}
         value={props.delay}
-        setValue={props.setDelay}
+        changeValues={props.changeValues}
       />
     </div>
   );

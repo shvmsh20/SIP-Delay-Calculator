@@ -14,6 +14,23 @@ function Calculator() {
   const [notionalLoss, setNotionalLoss] = useState();
   const [err, setErr] = useState();
 
+  function changeValues(index, val) {
+    switch (index) {
+      case 0:
+        setMonthlyInvestment(val);
+        break;
+      case 1:
+        setInvestmentPeriod(val);
+        break;
+      case 2:
+        setRateOfReturn(val);
+        break;
+      case 3:
+        setDelay(val);
+        break;
+    }
+  }
+
   //For  api
 
   useEffect(() => {
@@ -50,14 +67,10 @@ function Calculator() {
       <div className="container">
         <InputArea
           monthlyInvestment={monthlyInvestment}
-          setMonthlyInvestment ={setMonthlyInvestment}
           investmentPeriod={investmentPeriod}
-          setInvestmentPeriod={setInvestmentPeriod}
           rateOfReturn={rateOfReturn}
-          setRateOfReturn={setRateOfReturn}
           delay={delay}
-          setDelay={setDelay}
-          
+          changeValues={changeValues}
         />
         {err ? (
           <ErrorPage />
