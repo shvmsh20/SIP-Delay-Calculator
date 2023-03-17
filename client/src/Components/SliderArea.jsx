@@ -198,7 +198,7 @@ function SliderArea(props){
   const [inputVal, setInputVal] = useState(props.mn);
 
     const handleSliderChange = (event, newValue) => {
-        props.setValue(newValue);
+        props.setValue(props.index, newValue);
         setInputVal(newValue);
     };
 
@@ -214,24 +214,24 @@ function SliderArea(props){
           errField.style.display = "none";
         }, 1500);
         setInputVal(val);
-        props.setValue(props.mn);
+        props.setValue(props.index, props.mn);
         return;
       }
       
       if(Number(val)<props.mn){
         setInputVal(val);
-        props.setValue(props.mn);
+        props.setValue(props.index, props.mn);
         return;
       }
 
       if(Number(val)>props.mx){
         setInputVal(val);
-        props.setValue(props.mx);
+        props.setValue(props.index, props.mx);
         return;
       }
 
       setInputVal(val);
-      props.setValue(val === '' ? props.mn : Number(val));
+      props.setValue(props.index, val === '' ? props.mn : Number(val));
     };
 
     const handleBlur = (event) => {
@@ -239,7 +239,7 @@ function SliderArea(props){
       let val = event.target.value
 
       if(val==='-'){
-        props.setValue(props.mn);
+        props.setValue(props.index, props.mn);
         setInputVal(props.mn);
         return;
       }
@@ -247,12 +247,12 @@ function SliderArea(props){
       val = Number(val);
       
       if (val < props.mn) {
-        props.setValue(props.mn);
+        props.setValue(props.index, props.mn);
         setInputVal(props.mn);
         return;
       }
       if (val > props.mx) {
-        props.setValue(props.mx);
+        props.setValue(props.index, props.mx);
         setInputVal(props.mx);
         return;
       }
