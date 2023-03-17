@@ -2,21 +2,21 @@ import React from 'react';
 import {ResponsiveContainer,BarChart,Bar,XAxis,YAxis, Label, Tooltip} from 'recharts'
 
 
-const Graph = ({monthlyInvestment,investmentPeriod,startToday, delayedStart, notionalLoss}) => {
+const Graph = (props) => {
 
   const Array = [
     {
       name:"Start Today",
-      Amount: startToday,
+      Amount: props.startToday,
       
   },
   {
       name:"Delayed Start",
-      Amount: delayedStart,
+      Amount: props.delayedStart,
   },
   {
       name:"Notional Loss",
-      Amount: notionalLoss,
+      Amount: props.notionalLoss,
       fill: '#DF2E38'
 
   },
@@ -29,10 +29,10 @@ function toIndianRupees(sum){
 return (
 
     <div className='graphArea'>
-      <p className='graph-text'>After {investmentPeriod} years, you will have<br/>
-      <span className='totalamount'>₹ {toIndianRupees(delayedStart)}</span>
-      <br/>That's <span className='potentialamount'>₹ {toIndianRupees(startToday)}</span> as potential capital gains <br/> on your investment of 
-      <span className='delay'> ₹ {toIndianRupees(monthlyInvestment)}</span></p>
+      <p className='graph-text'>After {props.investmentPeriod} years, you will have<br/>
+      <span className='totalamount'>₹ {toIndianRupees(props.delayedStart)}</span>
+      <br/>That's <span className='potentialamount'>₹ {toIndianRupees(props.startToday)}</span> as potential capital gains <br/> on your investment of 
+      <span className='delay'> ₹ {toIndianRupees(props.monthlyInvestment)}</span></p>
     <ResponsiveContainer height="40%" width="80%" aspect={1.3} >
      
         <BarChart  className="bar-graph" data = {Array} width={200} max-height = {200}>
