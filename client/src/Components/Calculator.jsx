@@ -39,11 +39,17 @@ useEffect(() => {
     rateOfReturn : rateOfReturn,
     delay : delay,
     }})
-  console.log(res);
-    setStartToday(res.data.startToday);
-    setDelayedStart(res.data.delayedStart);
-    setNotionalLoss(res.data.notionalLoss);
-  
+    const response = res.data.result;
+    console.log(res);
+    if(res.data.status===0){
+      setStartToday(response.startToday);
+      setDelayedStart(response.delayedStart);
+      setNotionalLoss(response.notionalLoss);
+      console.log("Valid request");
+    }else if(res.data.status===-1){
+      console.log("Invalid request");
+    }
+    
     }
   fetchData();  
 }, [monthlyInvestment, investmentPeriod, rateOfReturn, delay]);
@@ -65,7 +71,7 @@ useEffect(() => {
           rateOfReturn={rateOfReturn} changeRateOfReturn={changeRateOfReturn} delay={delay} changeDelay={changeDelay}
         />
         <GraphArea monthlyInvestment={monthlyInvestment} investmentPeriod={investmentPeriod} 
-        rateOfReturn={rateOfReturn} delay={delay} startToday={startToday} delayedStart={delayedStart} notionalLoss={notionalLoss}/>
+        rateOfReturn={rateOfReturn} delay={delay} startToday={startToday} delayedStart={   delayedStart} notionalLoss={notionalLoss}/>
       </div>
       
     </div>
