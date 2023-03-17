@@ -35,7 +35,8 @@ const calculate = async (obj)=>{
         startToday,
         delayedStart,
         notionalLoss
-    };
+        }
+    
   }catch(error){
     return error;
   }
