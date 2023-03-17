@@ -25,15 +25,22 @@ function findAmountWithoutDelay(monthlyInvestment, investmentPeriod, rateOfRetur
     }
     return sipGrowthResult;
   }
-const calculate = (obj)=>{
+const calculate = async (obj)=>{
+
+  try{
     const startToday = findAmountWithoutDelay(obj.monthlyInvestment, obj.investmentPeriod, obj.rateOfReturn).toFixed(0);
     const delayedStart = findAmountWithDelay(obj.monthlyInvestment, obj.investmentPeriod, obj.rateOfReturn, obj.delay).toFixed(0);
-    const notionalLoss = startToday - delayedStart;
+    const notionalLoss = (startToday - delayedStart);
     return {
         startToday,
         delayedStart,
         notionalLoss
-    };
+        }
+    
+  }catch(error){
+    return error;
+  }
+    
 
 }
 

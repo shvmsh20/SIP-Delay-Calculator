@@ -204,6 +204,8 @@ function SliderArea({index, mn, mx, steps, value, setValue}){
 
     const handleInputChange = (event) => {
       
+      //FrontEnd validations
+      
       let val = event.target.value;
       if(val.startsWith('-')){
         const errField = document.getElementsByClassName("err-field")[index];
@@ -216,7 +218,6 @@ function SliderArea({index, mn, mx, steps, value, setValue}){
         return;
       }
       
-
       if(Number(val)<mn){
         setInputVal(val);
         setValue(mn);
@@ -231,7 +232,6 @@ function SliderArea({index, mn, mx, steps, value, setValue}){
 
       setInputVal(val);
       setValue(val === '' ? mn : Number(val));
-      
     };
 
     const handleBlur = (event) => {
