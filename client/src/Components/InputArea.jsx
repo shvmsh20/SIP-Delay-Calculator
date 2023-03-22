@@ -7,7 +7,7 @@ function InputArea(props) {
       <SliderArea
         index={0}
         mn={500}
-        mx={10000}
+        mx={100000}
         steps={50}
         value={props.monthlyInvestment}
         changeValues={props.changeValues}
