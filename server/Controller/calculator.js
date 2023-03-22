@@ -7,7 +7,7 @@ const isValid = (request) => {
     const expectedRateOfReturn = Number(request.rateOfReturn);
     const delay = Number(request.delay);
 
-    if(Number.isNaN(monthlyInvestment) || monthlyInvestment<500 || monthlyInvestment>10000){
+    if(Number.isNaN(monthlyInvestment) || monthlyInvestment<500 || monthlyInvestment>100000){
         return false;
     }
 

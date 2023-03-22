@@ -12,24 +12,24 @@ const miArray = [
     label: "500",
   },
   {
-    value: 2400,
-    label: "2400",
+    value: 24000,
+    label: "24000",
   },
   {
-    value: 4300,
-    label: "4300",
+    value: 43000,
+    label: "43000",
   },
   {
-    value: 6200,
-    label: "6200",
+    value: 62000,
+    label: "62000",
   },
   {
-    value: 8100,
-    label: "8100",
+    value: 81000,
+    label: "81000",
   },
   {
-    value: 10000,
-    label: "10000",
+    value: 100000,
+    label: "100000",
   },
 ];
 
